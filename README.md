@@ -40,12 +40,13 @@ The dataset is available on Hugging Face and must be downloaded before running a
 
 ### Dataset Download Instructions
 
-```bash
+```
+bash
 git lfs install
 git clone https://huggingface.co/datasets/ICICLE-AI/organization-sic-code_smart-foodsheds
 
 After downloading, extract and place the unzipped data/ folder in the root directory (next to src/).
-
+```
 ### Dataset Variants
 
 The dataset includes multiple variants based on the source of the organization descriptions:
@@ -65,6 +66,38 @@ Each variant includes the following splits:
 
 ---
 
+## How to Use
 
+Each model directory under `src/` contains separate training and testing scripts.
 
+You only need to specify the dataset variant using the `--dataset` argument.  
+Accepted options include: `gsnip`, `gptsummary`, `llamasummary`, `gsnip+gptsummary`, `gsnip+llamasummary`.
 
+### Train
+
+```bash
+python src/BERT/bert_train.py --dataset gsnip
+python src/RoBERTa/roberta_train.py --dataset gptsummary
+python src/Longformer/longformer_train.py --dataset gsnip+llamasummary
+```
+### Test
+
+```bash
+python src/BERT/bert_test.py --dataset gsnip
+python src/RoBERTa/roberta_test.py --dataset gptsummary
+python src/Longformer/longformer_test.py --dataset gsnip+llamasummary
+```
+All scripts are designed to automatically handle variations in file naming and input formats.
+
+---
+
+## Citation
+
+If you use this dataset or codebase, please cite our upcoming publication (currently under review).  
+In the meantime, feel free to reference the https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds.
+
+We will update this section with the full citation once the paper is accepted and published.
+
+---
+## Acknowledgements
+This research was supported in part by the ICICLE project through NSF award OAC 2112606 and the Canadian Institutes of Health Research FRN 177412.
