@@ -50,18 +50,18 @@ After downloading, extract and place the unzipped data/ folder in the root direc
 
 The dataset includes multiple variants based on the source of the organization descriptions:
 
-- **Google_snippets**: Google search snippets  
-- **GPT-generated-summaries**: GPT-4o-mini generated summaries  
-- **LLaMA-generated-summaries**: LLaMA 3.1–8B Instruct generated summaries  
-- **Google_snippets+GPT-generated-summaries** / **Google_snippets+LLaMA-generated-summaries**: Combined inputs of snippet + generated summary  
+- Google_snippets: Google search snippets  
+- GPT-generated-summaries: GPT-4o-mini generated summaries  
+- LLaMA-generated-summaries: LLaMA 3.1–8B Instruct generated summaries  
+- Combined inputs of snippet + generated summary: Google_snippets+GPT-generated-summaries or Google_snippets+LLaMA-generated-summaries  
 
 Each variant includes the following splits:
 
-- `train.csv`
-- `dev.csv`
-- `test.csv`  
+- train.csv
+- dev.csv
+- test.csv  
 
-(or the corresponding summary files, e.g., `train_gpt_response.csv`, `test-llama3.18b-summary.csv`, etc.)
+(or the corresponding summary files, e.g., train_gpt_response.csv, test-llama3.18b-summary.csv, etc.)
 
 ---
 
