@@ -6,29 +6,7 @@ This repository contains code for training and evaluating models that classify o
 
 ## Project Structure
 
-organization-sic-classifier-for-smart-foodsheds/
-|
-|│-- src/
-|    |
-|    |├-- BERT/
-|    |    |
-|    |    |├-- bert_train.py
-|    |    |└-- bert_test.py
-|    |
-|    |├-- RoBERTa/
-|    |    |
-|    |    |├-- roberta_train.py
-|    |    |└-- roberta_test.py
-|    |
-|    |├-- Longformer/
-|    |    |
-|    |    |├-- longformer_train.py
-|    |    |└-- longformer_test.py
-|    |
-|    └-- GPT-4o-mini/
-|         └-- run_gpt4o_instructions.txt
-|
-└-- README.md
+<pre> ## Project Structure ``` organization-sic-classifier/ | |-- src/ | | | |-- bert/ | | |-- bert_train.py | | └-- bert_test.py | | | |-- roberta/ | | |-- roberta_train.py | | └-- roberta_test.py | | | |-- longformer/ | | |-- longformer_train.py | | └-- longformer_test.py | | | └-- gpt-4o-mini/ | └-- instructions.txt | └-- README.md ``` </pre>
 
 
 ---
