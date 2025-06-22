@@ -100,4 +100,4 @@ We will update this section with the full citation once the paper is accepted an
 
 ---
 ## Acknowledgements
-This research was supported in part by the ICICLE project through NSF award OAC 2112606 and the Canadian Institutes of Health Research FRN 177412.
+This research was supported in part by the ICICLE project through NSF award OAC 2112606.
