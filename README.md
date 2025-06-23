@@ -3,38 +3,17 @@
 
 This repository contains code for training and evaluating models that classify organizations into Standard Industrial Classification (SIC) codes based on different types of descriptive text. The data used for training and evaluation is hosted on Hugging Face and should be downloaded separately.
 
----
-
-## Project Structure
-
-```
-organization-sic-classifier-for-smart-foodsheds/
-|
-|-- src/
-|   |
-|   |-- BERT/
-|   |   |-- bert_train.py
-|   |   └-- bert_test.py
-|   |
-|   |-- RoBERTa/
-|   |   |-- roberta_train.py
-|   |   └-- roberta_test.py
-|   |
-|   |-- Longformer/
-|   |   |-- longformer_train.py
-|   |   └-- longformer_test.py
-|   |
-|   └-- GPT-4o-mini/
-|       |-- run_gpt4o_instructions.txt
-|       |-- inference.py
-|       └-- evaluation.py
-|
-└-- README.md
-```
 
 ---
 
-## Dataset
+## Acknowledgements
+National Science Foundation (NSF) funded AI institute for Intelligent Cyberinfrastructure with Computational Learning in the Environment (ICICLE) (OAC 2112606)
+
+---
+
+## How-To Guides
+
+### Dataset
 
 The dataset is available on Hugging Face and must be downloaded before running any training or testing script.
 
@@ -65,13 +44,12 @@ Each variant includes the following splits:
 (or the corresponding summary files, e.g., train_gpt_response.csv, test-llama3.18b-summary.csv, etc.)
 
 ---
-
-## How to Use
-
+## Model
 Each model directory under `src/` contains separate training and testing scripts.
 
 You only need to specify the dataset variant using the `--dataset` argument.  
 Accepted options include: `gsnip`, `gptsummary`, `llamasummary`, `gsnip+gptsummary`, `gsnip+llamasummary`.
+
 
 ### Train
 
@@ -90,6 +68,35 @@ python src/Longformer/longformer_test.py --dataset gsnip+llamasummary
 All scripts are designed to automatically handle variations in file naming and input formats.
 
 ---
+## Explanation
+### Project Structure
+
+```
+organization-sic-classifier-for-smart-foodsheds/
+|
+|-- src/
+|   |
+|   |-- BERT/
+|   |   |-- bert_train.py
+|   |   └-- bert_test.py
+|   |
+|   |-- RoBERTa/
+|   |   |-- roberta_train.py
+|   |   └-- roberta_test.py
+|   |
+|   |-- Longformer/
+|   |   |-- longformer_train.py
+|   |   └-- longformer_test.py
+|   |
+|   └-- GPT-4o-mini/
+|       |-- run_gpt4o_instructions.txt
+|       |-- inference.py
+|       └-- evaluation.py
+|
+└-- README.md
+```
+
+---
 
 ## Citation
 
@@ -99,5 +106,4 @@ In the meantime, feel free to reference the https://github.com/ICICLE-ai/organiz
 We will update this section with the full citation once the paper is accepted and published.
 
 ---
-## Acknowledgements
-This research was supported in part by the ICICLE project through NSF award OAC 2112606.
+
