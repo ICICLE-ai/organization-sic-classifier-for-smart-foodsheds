@@ -3,6 +3,8 @@
 
 This repository contains code for training and evaluating models that classify organizations into Standard Industrial Classification (SIC) codes based on different types of descriptive text. The data used for training and evaluation is hosted on Hugging Face and should be downloaded separately.
 
+- smart-foodsheds
+
 
 ---
 
