@@ -1,7 +1,9 @@
 # organization-sic-classifier-for-smart-foodsheds
 
 
-This repository contains code for training and evaluating models that classify organizations into Standard Industrial Classification (SIC) codes based on different types of descriptive text. The data used for training and evaluation is hosted on Hugging Face and should be downloaded separately.
+This repository contains code for training and evaluating models that classify organizations into Standard Industrial Classification (SIC) codes based on different types of descriptive text.  This model is designed for researchers and data scientists who need to categorize unknown or newly listed organizations by business type. It can be applied to tasks such as food systems research, analyzing supply chains, and regional economic mapping, particularly in scenarios where structured corpora are unavailable. Given only an organization’s name and its description, the model predicts a high-level SIC category.
+
+While the current focus is on SIC code classification, this framework can be adapted for any text-based classification task across domains, as long as an entity list and corresponding gold labels are available. The data used for training and evaluation is hosted on Hugging Face and should be downloaded separately.
 
 - smart-foodsheds
 
@@ -20,6 +22,7 @@ National Science Foundation (NSF) funded AI institute for Intelligent Cyberinfra
 To get started, first clone the GitHub repository:
 
 ```
+bash
 git clone https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds.git
 cd organization-sic-classifier-for-smart-foodsheds
 ```
@@ -27,6 +30,7 @@ cd organization-sic-classifier-for-smart-foodsheds
 Create a virtual environment:
 
 ```
+bash
 python3 -m venv venv
 ```
 
@@ -34,16 +38,19 @@ Activate the virtual environment:
 
 - On macOS/Linux:
 ```
+bash
 source venv/bin/activate
 ```
 - On Windows:
   
 ```
+bash
 venv\Scripts\activate
 ```
 Install all required Python packages:
 
 ```
+bash
 pip install -r requirements.txt
 ```
 ### Dataset
@@ -53,11 +60,11 @@ The dataset is available on Hugging Face and must be downloaded before running a
 ### Dataset Download Instructions
 
 ```
+bash
 git lfs install
 git clone https://huggingface.co/datasets/ICICLE-AI/organization-sic-code_smart-foodsheds
 
-Create a data/ folder in the root directory of your project (the same level as the src/ folder).
-After downloading the data, unzip it inside the data/ folder you just created.
+After downloading, extract and place the unzipped data/ folder in the root directory (next to src/).
 ```
 ### Dataset Variants
 
@@ -74,8 +81,6 @@ Each variant includes the following splits:
 - train.csv
 - dev.csv
 - test.csv  
-
-(or the corresponding summary files, e.g., train_gpt_response.csv, test-llama3.18b-summary.csv, etc.)
 
 ---
 ## Model
@@ -100,6 +105,27 @@ python src/roberta/test_roberta.py --dataset gptsummary
 python src/longformer/test_longformer.py --dataset gsnip+llamasummary
 ```
 All scripts are designed to automatically handle variations in file naming and input formats.
+
+---
+## Output Files
+
+After running the classification pipeline, the following output files will be generated:
+### label_predictions.csv
+- org_name: The name of the organization
+- true_label: The ground-truth SIC category label
+- predicted_label: The label (SIC code) predicted by the model
+- confidence_score: The model's confidence in the prediction
+
+### classification_report.csv
+
+This file reports the overall performance of the model across all SIC categories using standard metrics:
+
+- precision: Correct positive predictions out of all predicted positives
+- recall: Correct positive predictions out of all actual positives
+- f1-score: Harmonic mean of precision and recall
+- support: Number of true instances for each class
+
+The final row provides macro, micro, and weighted averages for a comprehensive summary of model performance.
 
 ---
 ## Explanation
