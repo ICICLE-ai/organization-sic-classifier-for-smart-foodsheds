@@ -24,6 +24,33 @@ bash
 git clone https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds.git
 cd organization-sic-classifier-for-smart-foodsheds
 ```
+### Create and Activate Virtual Environment
+Create a virtual environment:
+
+```
+bash
+python3 -m venv venv
+```
+
+Activate the virtual environment:
+
+- On macOS/Linux:
+```
+bash
+source venv/bin/activate
+```
+- On Windows:
+  
+```
+bash
+venv\Scripts\activate
+```
+Install all required Python packages:
+
+```
+bash
+pip install -r requirements.txt
+```
 ### Dataset
 
 The dataset is available on Hugging Face and must be downloaded before running any training or testing script.
@@ -41,10 +68,11 @@ After downloading, extract and place the unzipped data/ folder in the root direc
 
 The dataset includes multiple variants based on the source of the organization descriptions:
 
-- Google_snippets: Google search snippets  
-- GPT-generated-summaries: GPT-4o-mini generated summaries  
-- LLaMA-generated-summaries: LLaMA 3.1–8B Instruct generated summaries  
-- Combined inputs of snippet + generated summary: Google_snippets+GPT-generated-summaries or Google_snippets+LLaMA-generated-summaries  
+- gsnip: Google search snippets  gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary
+- gptsummary: GPT-4o-mini generated summaries  
+- llamasummary: LLaMA 3.1–8B Instruct generated summaries  
+- gsnip+gptsummary: Combined inputs of google snippets + GPT-4o-mini generated summaries
+- gsnip+llamasummary: Combined inputs of google snippets + LLaMA 3.1–8B Instruct generated summaries  
 
 Each variant includes the following splits:
 
@@ -65,16 +93,16 @@ Accepted options include: `gsnip`, `gptsummary`, `llamasummary`, `gsnip+gptsumma
 ### Train
 
 ```bash
-python src/BERT/bert_train.py --dataset gsnip
-python src/RoBERTa/roberta_train.py --dataset gptsummary
-python src/Longformer/longformer_train.py --dataset gsnip+llamasummary
+python src/bert/train_bert.py --dataset gsnip
+python src/roberta/train_roberta.py --dataset gptsummary
+python src/longformer/train_longformer.py --dataset gsnip+llamasummary
 ```
 ### Test
 
 ```bash
-python src/BERT/bert_test.py --dataset gsnip
-python src/RoBERTa/roberta_test.py --dataset gptsummary
-python src/Longformer/longformer_test.py --dataset gsnip+llamasummary
+python src/bert/test_bert.py --dataset gsnip
+python src/roberta/test_roberta.py --dataset gptsummary
+python src/longformer/test_longformer.py --dataset gsnip+llamasummary
 ```
 All scripts are designed to automatically handle variations in file naming and input formats.
 
