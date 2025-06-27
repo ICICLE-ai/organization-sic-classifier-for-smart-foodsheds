@@ -26,12 +26,12 @@ inputs:
   - id: model_type
     type: string
     description: >
-      Model to use. Options: BERT, RoBERTa, Longformer.
+      Model to use. Options: bert, roberta, longformer.
 
   - id: dataset
     type: string
     description: >
-      Dataset variant name (e.g., google_snippets, gpt-generated-summaries, llama-generated-summaries, google_snippets+gpt-generated-summaries, google_snippets+llama-generated-summaries)
+      Dataset variant name (e.g., gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary)
 
   - id: mode
     type: string
