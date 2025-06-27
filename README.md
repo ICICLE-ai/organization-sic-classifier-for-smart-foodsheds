@@ -15,6 +15,15 @@ National Science Foundation (NSF) funded AI institute for Intelligent Cyberinfra
 
 ## How-To Guides
 
+### Repository Clone
+
+To get started, first clone the GitHub repository:
+
+```
+bash
+git clone https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds.git
+cd organization-sic-classifier-for-smart-foodsheds
+```
 ### Dataset
 
 The dataset is available on Hugging Face and must be downloaded before running any training or testing script.
@@ -76,26 +85,32 @@ All scripts are designed to automatically handle variations in file naming and i
 ```
 organization-sic-classifier-for-smart-foodsheds/
 |
+|-- data/
+|
 |-- src/
 |   |
-|   |-- BERT/
-|   |   |-- bert_train.py
-|   |   └-- bert_test.py
+|   |-- bert/
+|   |   |-- test_bert.py
+|   |   └-- train_bert.py
 |   |
-|   |-- RoBERTa/
-|   |   |-- roberta_train.py
-|   |   └-- roberta_test.py
+|   |-- gpt-4o-mini/
+|   |   |-- evaluation.py
+|   |   |-- inference.py
+|   |   └-- instructions.txt
 |   |
-|   |-- Longformer/
-|   |   |-- longformer_train.py
-|   |   └-- longformer_test.py
+|   |-- longformer/
+|   |   |-- test_longformer.py
+|   |   └-- train_longformer.py
 |   |
-|   └-- GPT-4o-mini/
-|       |-- run_gpt4o_instructions.txt
-|       |-- inference.py
-|       └-- evaluation.py
+|   |-- roberta/
+|       |-- test_roberta.py
+|       └-- train_roberta.py
 |
-└-- README.md
+|-- LICENSE
+|-- README.md
+|-- component.yml
+|-- requirements.txt
+
 ```
 
 ---
