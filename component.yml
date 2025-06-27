@@ -46,4 +46,4 @@ outputs:
       Path to save prediction results.
 
 command: |
-  python src/${model_type}/${model_type}_${mode}.py --dataset ${dataset} --output ${output_file}
+  python src/${model_type}/${mode}_${model_type}.py --dataset ${dataset} --output ${output_file}
