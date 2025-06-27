@@ -20,7 +20,6 @@ National Science Foundation (NSF) funded AI institute for Intelligent Cyberinfra
 To get started, first clone the GitHub repository:
 
 ```
-bash
 git clone https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds.git
 cd organization-sic-classifier-for-smart-foodsheds
 ```
@@ -28,7 +27,6 @@ cd organization-sic-classifier-for-smart-foodsheds
 Create a virtual environment:
 
 ```
-bash
 python3 -m venv venv
 ```
 
@@ -36,19 +34,16 @@ Activate the virtual environment:
 
 - On macOS/Linux:
 ```
-bash
 source venv/bin/activate
 ```
 - On Windows:
   
 ```
-bash
 venv\Scripts\activate
 ```
 Install all required Python packages:
 
 ```
-bash
 pip install -r requirements.txt
 ```
 ### Dataset
@@ -58,11 +53,11 @@ The dataset is available on Hugging Face and must be downloaded before running a
 ### Dataset Download Instructions
 
 ```
-bash
 git lfs install
 git clone https://huggingface.co/datasets/ICICLE-AI/organization-sic-code_smart-foodsheds
 
-After downloading, extract and place the unzipped data/ folder in the root directory (next to src/).
+Create a data/ folder in the root directory of your project (the same level as the src/ folder).
+After downloading the data, unzip it inside the data/ folder you just created.
 ```
 ### Dataset Variants
 

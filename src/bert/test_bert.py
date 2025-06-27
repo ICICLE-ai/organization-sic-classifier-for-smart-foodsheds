@@ -22,20 +22,31 @@ class SICCodeDataset(Dataset):
 def load_test_data(dataset_name, tokenizer, max_length):
     data_dir = f"data/{dataset_name}"
 
+    #Always loading test.csv
+    COL_MAP = {
+            "gsnip": "google_snippet",
+            "llamasummary": "llama-summary",
+            "gptsummary": "gpt_response"
+        }
     if '+' in dataset_name:
-        df1 = pd.read_csv(os.path.join(data_dir, "test.csv"))
-        df2 = pd.read_csv(os.path.join(data_dir, "test_gpt_response.csv" if 'gptsummary' in dataset_name else "test-llama3.18b-summary.csv"))
-        combined_text = df1["google_snippet"] + " " + (df2["gpt_response"] if 'gptsummary' in dataset_name else df2["llama-summary"])
+        dir1,dir2 = dataset_name.split('+')
+        data_dir1 = f"data/{dir1}"
+        data_dir2 = f"data/{dir2}"
+        df1 = pd.read_csv(os.path.join(data_dir1, f"test.csv"))
+        df2 = pd.read_csv(os.path.join(data_dir2, f"test.csv"))
+        combined_text = df1[COL_MAP[dir1]] + " " + df2[COL_MAP[dir2]]
         texts = combined_text.tolist()
+        labels = df1["label"].tolist()
+        texts = df1["combined_text"].tolist()
         labels = df1["label"].tolist()
         org_names = df1["organization"].tolist()
     elif dataset_name == "gptsummary":
-        df = pd.read_csv(os.path.join(data_dir, "test_gpt_response.csv"))
+        df = pd.read_csv(os.path.join(data_dir, "test.csv"))
         texts = df["gpt_response"].tolist()
         labels = df["label"].tolist()
         org_names = df["organization"].tolist()
     elif dataset_name == "llamasummary":
-        df = pd.read_csv(os.path.join(data_dir, "test-llama3.18b-summary.csv"))
+        df = pd.read_csv(os.path.join(data_dir, "test.csv"))
         texts = df["llama-summary"].tolist()
         labels = df["label"].tolist()
         org_names = df["organization"].tolist()
