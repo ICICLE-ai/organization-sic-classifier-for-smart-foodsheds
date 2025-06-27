@@ -68,7 +68,7 @@ After downloading, extract and place the unzipped data/ folder in the root direc
 
 The dataset includes multiple variants based on the source of the organization descriptions:
 
-- gsnip: Google search snippets  gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary
+- gsnip: Google search snippets  
 - gptsummary: GPT-4o-mini generated summaries  
 - llamasummary: LLaMA 3.1–8B Instruct generated summaries  
 - gsnip+gptsummary: Combined inputs of google snippets + GPT-4o-mini generated summaries
