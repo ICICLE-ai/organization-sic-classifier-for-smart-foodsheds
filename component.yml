@@ -1,49 +1,26 @@
-name: organization-sic-classifier-for-smart-foodsheds
-description: >
-  This component classifies organizations into Standard Industrial Classification (SIC) codes
-  using transformer-based models (BERT, RoBERTa, or Longformer), as well as a Generative Language Model (GPT-4o Mini),
-  based on descriptive text about organizational activities (e.g., what the organization does or produces).
-  The input descriptions are typically sourced from Google search snippets or generated summaries from large language models.
-
-  Standard Industrial Classification (SIC) Code: The SIC code is a four-digit code used by the U.S. government
-  to categorize businesses by their primary activities. We use the first two digits of each SIC code to reduce
-  data sparsity and provide a high-level view of business types — for example, code 20 represents Food Products,
-  and code 58 represents Eating Places.
-
-  **Use Case**:
-  This model is designed for researchers and data scientists who need to categorize unknown or
-  newly listed organizations by business type. It can be applied to tasks such as analyzing supply chains,
-  regional economic mapping, or food systems research, particularly in scenarios where structured corpora are unavailable.
-  Given only an organization's name and description, the model predicts a high-level SIC category.
-
-  While the current focus is on SIC code classification, this framework can be adapted for any text-based classification task
-  across domains, as long as an entity list and corresponding gold labels are available.
-
-  Note: GPT-4o Mini-based classification is handled separately due to the private nature of the fine-tuned model ID.
-  Instructions for running GPT-4o Mini inference are provided in src/GPT-4o-mini/instructions.txt.
-
-inputs:
-  - id: model_type
-    type: string
-    description: >
-      Model to use. Options: bert, roberta, longformer.
-
-  - id: dataset
-    type: string
-    description: >
-      Dataset variant name (e.g., gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary)
-
-  - id: mode
-    type: string
-    default: train
-    description: >
-      Mode of operation. Use 'train' to fine-tune a model, or 'test' to run inference.
-
-outputs:
-  - id: output_file
-    type: file
-    description: >
-      Path to save prediction results.
-
-command: |
-  python src/${model_type}/${mode}_${model_type}.py --dataset ${dataset} --output ${output_file}
+{
+  id: OrganizationSicClassifierForSmartFoodsheds,
+  owner: Fahmida Alam, Ellen Riloff,
+  name: organization-sic-classifier-for-smart-foodsheds,
+  status: Alpha,
+  primaryThrust: smart-foodsheds,
+  description: Standard Industrial Classification (SIC) code classifier for organizations.
+  componentVersion: 0.0.1,
+  targetIcicleRelease: 2025-07,
+  licenseUrl: https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds/blob/main/LICENSE,
+  publicAccess: false,
+  releaseNotesUrl:,
+  sourceCodeUrl: https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds/tree/main,
+  containerImage:,
+  citation:,
+  codeReviewConducted: true,
+  testsWritten: true,
+  securityReviewConducted: false,
+  usageDocumentationAvailable: true,
+  usageDocumentationUrl: https://github.com/ICICLE-ai/organization-sic-classifier-for-smart-foodsheds/blob/main/README.md,
+  developerDocumentationAvailable: false,
+  developerDocumentationUrl:,
+  trainingTutorialsAvailable: false,
+  trainingTutorialsUrl:,
+  usageMetricsCollected: false,
+}
