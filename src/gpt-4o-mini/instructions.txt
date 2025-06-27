@@ -37,10 +37,11 @@ Example (test):
 Dataset Variants:
 -----------------
 You can create different variants using:
-- Google Search Snippets 
-- GPT-generated Summaries 
-- LLaMA-generated Summaries
-- Combined descriptions (`google_snippets+gpt-generated-summaries` or `google_snippets+llama-generated-summaries`)
+- gsnip: Google search snippets 
+- gptsummary: GPT-4o-mini generated summaries  
+- llamasummary: LLaMA 3.1–8B Instruct generated summaries  
+- gsnip+gptsummary: Combined inputs of google snippets + GPT-4o-mini generated summaries
+- gsnip+llamasummary: Combined inputs of google snippets + LLaMA 3.1–8B Instruct generated summaries
 
 Steps:
 ------
