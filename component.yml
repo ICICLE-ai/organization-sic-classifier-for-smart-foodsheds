@@ -31,7 +31,7 @@ inputs:
   - id: dataset
     type: string
     description: >
-      Dataset variant name (e.g., gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary)
+      Dataset variant name (e.g., google_snippets, gpt-generated-summaries, llama-generated-summaries, google_snippets+gpt-generated-summaries, google_snippets+llama-generated-summaries)
 
   - id: mode
     type: string
