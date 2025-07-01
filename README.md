@@ -97,6 +97,17 @@ python src/bert/train_bert.py --dataset gsnip
 python src/roberta/train_roberta.py --dataset gptsummary
 python src/longformer/train_longformer.py --dataset gsnip+llamasummary
 ```
+
+### Saved Model
+
+After training, the model and related artifacts are saved to:
+models/<model_type>/<dataset>/saved_model/
+
+- model_type: Name of the model used (e.g., bert, roberta, longformer)
+- dataset: Name of the dataset passed via --dataset (e.g., gsnip, gptsummary, llamasummary, gsnip+gptsummary, gsnip+llamasummary)
+
+The folder structure is created automatically by the script; no manual setup is required.
+
 ### Test
 
 ```bash
